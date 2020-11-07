@@ -2,6 +2,7 @@ package com.androidwcc.todayscocktail.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.androidwcc.todayscocktail.data.DatabaseItems
 import com.androidwcc.todayscocktail.network.Cocktail
 import com.androidwcc.todayscocktail.network.CocktailsAPI
 import kotlinx.coroutines.CoroutineScope
@@ -20,6 +21,16 @@ class CocktailsListRepository {
     }
 
     private fun getCocktailsList() {
+
+//        CoroutineScope(Dispatchers.IO).launch {
+//            try {
+//                val listResult: List<Cocktail> =
+//            }
+//        }
+
+
+
+
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val listResult = CocktailsAPI.retrofitService.getAlcoholicCocktails().cocktailsList
