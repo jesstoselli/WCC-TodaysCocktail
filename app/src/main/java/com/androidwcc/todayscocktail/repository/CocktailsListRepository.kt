@@ -25,11 +25,11 @@ class CocktailsListRepository(private val dao: CocktailItemDao) {
     private fun getCocktailsList() {
 
         CoroutineScope(Dispatchers.IO).launch {
-                val listResult: LiveData<List<CocktailItem>> = dao.getAll()
+                val listResult: List<CocktailItem> = dao.getAll()
                cocktailListResponse.postValue(listResult)
         }
 
-        if (cocktailListResponse == false) {
+        if (cocktailListResponse.value === null) {
 
             CoroutineScope(Dispatchers.IO).launch {
                 try {

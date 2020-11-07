@@ -10,7 +10,7 @@ import com.androidwcc.todayscocktail.entities.CocktailItem
 @Dao
 interface CocktailItemDao {
     @Query("SELECT * FROM cocktail_item ORDER BY name ASC")
-    fun getAll(): LiveData<List<CocktailItem>>
+    fun getAll(): List<CocktailItem>
 
     @Insert
     suspend fun insert(item: CocktailItem)
